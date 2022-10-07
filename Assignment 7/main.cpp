@@ -5,11 +5,19 @@ Compete in a simple battle arena and pray RNG blesses you.*/
 #include <iostream>
 #include <random>
 #include <string>
+#include "Creature.h"
+#include "Human.h"
+#include "Elf.h"
+#include "Demon.h"
+#include "Cyberdemon.h"
+#include "Balrog.h"
+
+
 using namespace std;
 const int ELF_DMG = 10;//chances of dealing more dmg
 const int DEMON_DMG = 5;
 
-class Creature
+/*class Creature
 {
 protected:
 	int type; 
@@ -47,7 +55,7 @@ public:
 	 void setHP(int hp);
 	 int randNum(int min,int max);//random generator
 	 void displayStats();
-};
+}; 
 
 string Creature::getSpecies()
 {
@@ -72,28 +80,33 @@ void Creature::setHP(int hp) {
 }
 void Creature::setType(int type) {
 	this->type = type;
-}
+} */
+
 /*2)Returns a int value representing damage.3)Generate a int value based on 
 strength. Displays how much damage the creature deals*/
-int Creature::getDamage() {
+
+/*int Creature::getDamage() {
 	int dmg = (rand() % strength) + 1;
 	cout << "The " << getSpecies() << " attacks for " << dmg << " points!";
 	cout << endl;
 	return dmg;
-}
+} /*
+
 /*1) Pass by value representing start and end of range
 2) Returns a random int within range. 3)Function works as a random generator*/
-int Creature::randNum(int min, int max) {
+/*int Creature::randNum(int min, int max) {
 	//generate random number between range
 	return rand() % max + min;
-}
+}*/
 /*Returns nothing. Function purpose is to display the stats for the player*/
-void Creature::displayStats() {
+
+/*void Creature::displayStats() {
 	cout << "Player " <<getSpecies() << " HP: " << getHP() << " "
 		<< "Strength: " << getStr() << endl;
-}
+} */
 
-class Human :public Creature {
+
+/*class Human :public Creature {
 public:
 	Human() :Creature() {} //call the base default class constructor
 	Human(int newStr, int newHP) :Creature(newStr, newHP) {} //inherit base
@@ -102,13 +115,15 @@ public:
 		return "Human";
 	}
 
-};
-/*Returns the default base function*/
-int Human::getDamage() {
-	return Creature::getDamage();
-}
+}; */
 
-class Elf :public Creature {
+/*Returns the default base function*/
+
+/*int Human::getDamage() {
+	return Creature::getDamage();
+}*/
+
+/*class Elf :public Creature {
 public:
 	Elf() :Creature() {}
 	Elf(int newStr, int newHP) :Creature(newStr, newHP) {}
@@ -116,10 +131,12 @@ public:
 	string getSpecies() override {
 		return "Elf";
 	}
-};
+}; */
+
 /*2)Returns int value of dmg inflicted by elf. 3)Damage modified for Elf due to
 their affinity for magic. Deals twice the dmg if successful chance*/
-int Elf::getDamage() {
+
+/*int Elf::getDamage() {
 	//elves inflict double magic dmg with 10% chance
 	int dmgMod = Creature::getDamage();
 	int chance = randNum(0, 9);
@@ -132,8 +149,9 @@ int Elf::getDamage() {
 			<< "points!" << endl;
 		}
 	return dmgMod;
-}
-class Demon :public Creature {
+} */
+
+/*class Demon :public Creature {
 public:
 	Demon() :Creature() {};
 	Demon(int newStr, int newHP) :Creature(newStr, newHP) {}
@@ -141,10 +159,12 @@ public:
 	string getSpecies() override {
 		return "Demon";
 	}
-};
+}; */
+
 /*2)Returns int value for demon dmg. 3)Damage modified for Demon because 
 of their race. Adds 50 dmg additional if successful*/
-int Demon::getDamage() {
+
+/*int Demon::getDamage() {
 	int dmgMod = Creature::getDamage();
 	int chance = randNum(0, 4);
 	if (chance == 0) {
@@ -155,8 +175,9 @@ int Demon::getDamage() {
 		dmgMod += 50;
 	}
 	return dmgMod;
-}
-class Cyberdemon : public Demon {
+}*/
+
+/*class Cyberdemon : public Demon {
 public:
 	Cyberdemon() :Demon() {};
 	Cyberdemon(int newStr, int newHP):Demon(newStr,newHP){}
@@ -164,13 +185,15 @@ public:
 	string getSpecies()override {
 		return "Cyberdemon";
 	}
-};
-/*2)Returns int value of dmg 3)Refer to the Demon class for dmg explanation*/
-int Cyberdemon::getDamage() {
-	return Demon::getDamage();
-}
+};*/
 
-class Balrog :public Demon {
+/*2)Returns int value of dmg 3)Refer to the Demon class for dmg explanation*/
+
+/*int Cyberdemon::getDamage() {
+	return Demon::getDamage();
+}*/
+
+/*class Balrog :public Demon {
 public:
 	Balrog() :Demon() {}
 	Balrog(int newStr, int newHP) : Demon(newStr, newHP) {}
@@ -178,14 +201,17 @@ public:
 	string getSpecies() override {
 		return "Balrog";
 	}
-};
+};*/
+
 /*2)Returns int value for balrog dmg. 3)Balrogs are fast so they get to strike
 twice.*/
-int Balrog::getDamage() {
+
+/*int Balrog::getDamage() {
 	int dmg = Demon::getDamage();
 	dmg += Demon::getDamage();
 	return dmg;
-}
+}*/
+
 /*1)Pass by two reference of class objects 2)return nothing 3)Player will be 
 facing against the opponent they choose. Game will continue until one reaches 0
 or both*/
